@@ -1,0 +1,56 @@
+:root{
+    --rotateRequestDisplay : none;
+}
+html { padding: 0; margin: 0; background: black; width: 100%; height: 100%;}
+body { padding: 0; margin: 0; background: black; width: 100%; height: 100%;}
+#unity-container { padding: 0; margin: 0; position: fixed; width: 100%; height: 100%; background-color: black;}
+#unity-canvas { width: 100%; height: 100%; background-image: url('bg.png'); background-size: 100% 100%;}
+#unity-loading-bar { position: absolute; left: 50%; top: 50%; transform-origin: center center; background: #fff0; animation: constant_rotate 2s linear infinite;}
+#unity-logo { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 180px; height: 180px; background: url('logo.png') no-repeat center; background-size: 100% 100%; }
+#unity-warning { position: absolute; left: 50%; top: 5%; transform: translate(-50%); background: white; padding: 10px; display: none }
+circle {
+    fill: none;
+    stroke: #ffff;
+    stroke-width: 20px;
+    stroke-dasharray: 942;
+    stroke-dashoffset: 942;
+    will-change: contents;
+}
+
+@keyframes constant_rotate
+{
+    0%   { transform: translate(-50%, -50%) rotate(0deg);}
+    100% { transform: translate(-50%, -50%) rotate(360deg);}
+}
+
+#rotate-LandscaperRequest {
+    display: none;
+    position: absolute;
+    left:0;
+    top:0;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+#landscapeGIF {
+    width: 128px;
+    height: 128px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('RotateToLandscapeIcon.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+@media screen and (orientation: portrait) {
+    #rotate-LandscaperRequest {
+        display: var(--rotateRequestDisplay);
+        position: absolute;
+
+      }
+}
